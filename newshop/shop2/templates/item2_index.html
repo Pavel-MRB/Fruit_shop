@@ -1,0 +1,27 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Овощи</title>
+</head>
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>Овощи</h1>
+<div class="row">
+{% for item2 in items2 %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static item2.image %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ item2.title }}</h5>
+                <p class="card-text">{{ item2.price }}</p>
+                <a href="{% url 'item2_detail' item2.pk %}"
+                   class="btn btn-info">
+                    Описание
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

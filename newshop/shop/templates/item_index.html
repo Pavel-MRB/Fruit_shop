@@ -1,0 +1,27 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Фрукты и ягоды</title>
+</head>
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>Фрукты и ягоды</h1>
+<div class="row">
+{% for item in items %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static item.image %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">{{ item.price }}</p>
+                <a href="{% url 'item_detail' item.pk %}"
+                   class="btn btn-info">
+                    Описание
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
