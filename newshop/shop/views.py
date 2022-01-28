@@ -1,10 +1,17 @@
 from django.shortcuts import render
-from .models import Item
+from .models import Item, Category
 
 def item_index(request):
-    items=Item.objects.all()
+    #import pdb
+    #pdb.set_trace()
+    items = Item.objects.all()
+    category_id = request.GET.get('category')
+    if category_id:
+        items = items.filter(category=category_id)
+
     context={
-        'items': items
+        'items': items,
+        'category': None if not category_id else Category.objects.get(pk=category_id)
     }
     return render(request, 'item_index.html',context)
 
@@ -16,4 +23,5 @@ def item_detail(request,pk):
 
     return render(request,'item_detail.html',context)
 
-
+def about_us(request):
+    return render(request, 'about_us.html')

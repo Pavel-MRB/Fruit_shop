@@ -1,0 +1,21 @@
+body {
+    background: #00ff95;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: cursive;
+}
+
+a {
+    font-size: larger;
+    font-family: initial;
+    text-align: center;
+}
+
+.navbar-brand {
+margin-left:176px
+}
+
+
